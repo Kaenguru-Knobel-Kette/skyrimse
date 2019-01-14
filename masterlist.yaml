@@ -491,11 +491,19 @@ groups:
   - name: &ccGroup Creation Club
     after: [ *dlcGroup ]
 
+  - name: &preEarlyLoadersGroup Pre-Early (Patches/Add-ons)
+
   - name: &earlyLoadersGroup Early Loaders
-    after: [ *ccGroup ]
+    after:
+      - *ccGroup
+      - *preEarlyLoadersGroup
+
+  - name: &preFixesGroup Pre-Fixes (Patches/Add-ons)
 
   - name: &fixesGroup Fixes & Resources
-    after: [ *earlyLoadersGroup ]
+    after:
+      - *earlyLoadersGroup
+      - *preFixesGroup
 
   - name: &addonsGroup Add-ons & Expansions
     after: [ *fixesGroup ]
